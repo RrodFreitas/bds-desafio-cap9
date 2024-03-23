@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { requestBackendLogin, saveLocalStorage } from "util/requests";
 import { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { ContAuthenticate } from "../../ContAuthenticate";
+import { AuthContext } from "../../AuthContext";
 
 import "./styles.css";
 
@@ -14,7 +14,7 @@ type DadosForm = {
 const Login = () => {
   const [temErro, setTemErro] = useState(false);
   const { register, handleSubmit, formState: {errors} } = useForm<DadosForm>();
-  const { setDadosAutContexto } = useContext(ContAuthenticate);
+  const { setAuthContextData } = useContext(AuthContext);
   const history = useHistory();
 
   const onSubmit = (dadosForm: DadosForm) => {
@@ -22,7 +22,7 @@ const Login = () => {
       .then((response) => {
         setTemErro(false);
         saveLocalStorage(response.data);
-        setDadosAutContexto({
+        setAuthContextData({
           authenticated: true
         });
         history.push("/movies");

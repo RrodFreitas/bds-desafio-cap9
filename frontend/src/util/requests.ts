@@ -15,7 +15,7 @@ type LoginResponse = {
 
 type Role = 'ROLE_VISITOR' | 'ROLE_MEMBER';
 
-export type DadosToken = {
+export type TokenData = {
   exp: number,
   user_name: string,
   authorities: Role[]
@@ -120,24 +120,24 @@ axios.interceptors.response.use(
   }
 );
 
-export const obtemDadosToken = () : DadosToken | undefined => {
+export const getTokenData = () : TokenData | undefined => {
   try {
-    return jwtDecode(obtemDadosAutenticacao().access_token) as DadosToken;
+    return jwtDecode(obtemDadosAutenticacao().access_token) as TokenData;
   } catch (error) {
     return undefined;
   }
 }
 
 export const isAuthenticated = () : boolean => {
-  const DadosToken = obtemDadosToken();
+  const DadosToken = getTokenData();
   return (DadosToken && DadosToken.exp * 1000 > Date.now()) ? true : false;
 }
 
-export const temRoles = (roles: Role[]) : boolean => {
+export const hasAnyRoles = (roles: Role[]) : boolean => {
    if (roles.length===0) {
      return false;
    }
-   const dadosToken = obtemDadosToken();
+   const dadosToken = getTokenData();
    if (dadosToken !== undefined) {
      return roles.some(role => dadosToken.authorities.includes(role));
    }

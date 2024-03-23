@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "./App.css";
-import { ContAuthenticate, DadosAutContexto } from "./ContAuthenticate";
+import { AuthContext, AuthContextData } from "./AuthContext";
 import Routes from "./Routes";
 import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
-  const [dadosAutContexto, setDadosAutContexto] = useState<DadosAutContexto>({
+  const [dadosAutContexto, setAuthContextData] = useState<AuthContextData>({
     authenticated: false,
   });
 
   return (
-    <ContAuthenticate.Provider
-      value={{ dadosAutContexto, setDadosAutContexto }}
+    <AuthContext.Provider
+      value={{ dadosAutContexto, setAuthContextData }}
     >
       <Routes />
-    </ContAuthenticate.Provider>
+    </AuthContext.Provider>
   );
 }
 

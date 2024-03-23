@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Avaliacoes from "../../components/Avaliacoes";
 import Cardavaliacao from "components/CardAvaliacao";
-import { requestBackend, temRoles } from "util/requests";
+import { requestBackend, hasAnyRoles } from "util/requests";
 import "./styles.css";
 import { Avaliacao } from "assets/types/Avaliacao";
 import { Movie } from "assets/types/movie";
@@ -53,7 +53,7 @@ const Moviedetail = () => {
         <h2>{movie?.title}</h2>
       </div>
 
-      {temRoles(["ROLE_MEMBER"]) && (
+      {hasAnyRoles(["ROLE_MEMBER"]) && (
         <div className="avaliacao-container">
           <Cardavaliacao movieId={movieId} onNewReview={getAvalic} />
         </div>
