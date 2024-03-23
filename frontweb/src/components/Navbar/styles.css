@@ -1,8 +1,8 @@
-.navbar {
+.navbar-container {
   background-color: #FFC700;
 }
 
-.custom-navbar {
+.custom-navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -12,7 +12,7 @@
   font-weight: 700;
 }
 
-.btn {
+.btn-container {
   font-weight: 700;
   border-radius: 10px;
   width: 100px;
@@ -20,27 +20,16 @@
 }
 
 @media (min-width: 1200px) {
-  .navbar {
-      background-color: #FFC700;
+  .navbar-container {
       padding-left: 10px;
   }
   
-  .navbar-brand {
+  .navbar-title-container {
       font-size: 24px;
   }
   
-  .custom-navbar {
-      display: flex;
-      justify-content: space-between;
+  .custom-navbar-container {
       margin-left: 50px;
       margin-right: 50px;
-      font-weight: 700;
-  }
-  
-  .btn {
-      font-weight: 700;
-      border-radius: 10px;
-      width: 100px;
-      height: 30px;
   }
 }

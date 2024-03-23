@@ -1,5 +1,8 @@
-import { ReactComponent as ImgTelaLogin } from 'assets/images/InitialScreen.svg';
-import './styles.css';
+import { ReactComponent as ImgPrincipal } from "assets/images/InitialScreen.svg";
+import Cardlogin from "components/CardLogin";
+import { isAuthenticated } from "util/requests";
+import "./styles.css";
+import history from 'util/history';
 
 const Home = () => {
   return (
@@ -8,10 +11,14 @@ const Home = () => {
         <h1>Avaliação de filmes</h1>
         <p>Diga o que achou do seu filme favorito</p>
         <div className="img-container">
-          <ImgTelaLogin />
+          <ImgPrincipal />
         </div>
       </div>
-      <div className="right-container"></div>
+      {!isAuthenticated() ? (
+      <div className="right-container">
+        <Cardlogin />
+      </div>) : (history.push("/movies"))
+      }
     </div>
   );
 };

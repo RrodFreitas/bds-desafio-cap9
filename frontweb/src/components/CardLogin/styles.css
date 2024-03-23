@@ -1,0 +1,88 @@
+.login-card {
+    width: 100%;
+    height: 465px;
+    align-items: center;
+}
+
+.login-card h1 {
+    margin-top: 75px;
+    color: white;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.base-input {
+    width: 100%;
+}
+
+.custom-btn {
+    width: 100%;
+    height: 50px;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 50px;
+    border-radius: 4px;
+}
+
+.login-submit{
+    justify-content: center;
+}
+
+.alert {
+    width: 85%;
+}
+
+.meu-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 576px) {
+    .base-input {
+        width: 400px;
+    }
+
+    .custom-btn {
+        width: 400px;
+    }
+}
+
+@media (min-width: 768px) {
+    
+    .login-card {
+        width: 80%;
+        margin-left: 80px;
+    }
+
+    .custom-btn {
+        margin-top: 50px;
+        width: 385px;
+        height: 65px;
+        font-size: 20px;
+    }
+
+    .meu-form {
+        width: 500px;
+    }
+}
+
+@media (min-width: 992px) {
+    .login-card {
+        margin-left: 90px;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    .login-card {
+        width: 480px;
+    }
+
+    .custom-btn {
+        margin-top: 50px;
+        width: 385px;
+        height: 55px;
+        font-size: 20px;
+    }
+}
